@@ -10,6 +10,8 @@
  */
 int main(int argc, char **argv)
 {
+    char *token, *token2;
+    unsigned int line_num = 0;
     FILE *stream;
     char *lineptr;
     size_t buff;
@@ -28,9 +30,9 @@ int main(int argc, char **argv)
     }
     while((num_read = getline(&lineptr, &buff, stream)) != -1)
     {
-
-        char *token = strtok(lineptr, " ");
-        char *token2 = strtok(NULL, " ");
+        line_num++;
+        token = strtok(lineptr, " ");
+        token2 = strtok(NULL, " ");
     }
     return (0);
 }

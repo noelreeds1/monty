@@ -41,8 +41,8 @@ typedef struct instruction_s
 } instruction_t;
 
 int main(int argc, char **argv);
-
-
+char *token_handler(char *token);
+char *push(stack_t **stack, unsigned int line_number);
 
 
 #endif /*----MONTY_H----*/
