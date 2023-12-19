@@ -2,37 +2,42 @@
 /**
  * main - Entry point of a C program
  *
- *@argc - refers to the number of args passed.
+ *@argc: refers to the number of args passed.
  *
- *@argv - refers to the arguments passed.
+ *@argv: refers to the arguments passed.
  *
  *Return: Always 0.
  */
+char *token2;
+
 int main(int argc, char **argv)
 {
-    char *token, *token2;
-    unsigned int line_num = 0;
-    FILE *stream;
-    char *lineptr;
-    size_t buff;
-    ssize_t num_read;
+	char *token = NULL;
+	unsigned int line_number = 1;
+	FILE *stream = NULL;
+	char *lineptr = NULL;
+	size_t buff_size = 0;
+	ssize_t num_read = 0;
+	stack_t *stack = NULL;
 
-    if (argc != 2)
-    {
-        fprintf(stderr, "USAGE: monty file\n");
-        exit(EXIT_FAILURE);
-    }
-    stream = fopen(argv[1], "r");
-    if (stream == NULL)
-    {
-        fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-        exit(EXIT_FAILURE);
-    }
-    while((num_read = getline(&lineptr, &buff, stream)) != -1)
-    {
-        line_num++;
-        token = strtok(lineptr, " ");
-        token2 = strtok(NULL, " ");
-    }
-    return (0);
+	if (argc != 2)
+	{
+		fprintf(stderr, "USAGE: monty file\n");
+		exit(EXIT_FAILURE);
+	}
+	stream = fopen(argv[1], "r");
+	if (stream == NULL)
+	{
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		exit(EXIT_FAILURE);
+	}
+	while ((num_read = getline(&lineptr, &buff_size, stream)) != -1)
+	{
+		token = strtok(lineptr, " \n");
+		token2 = strtok(NULL, " \n");
+		if (token != NULL)
+			token_handler(&stack, token, line_number);
+		line_number++;
+	}
+	return (0);
 }

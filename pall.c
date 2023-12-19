@@ -6,12 +6,14 @@
  *
  *Return: Always 0.
  */
-void pall(stack_t **stack)
+void pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *top_ptr = *stack;
+	(void)line_number;
+
 	while (top_ptr)
 	{
-		printf("%d", top_ptr->n);
+		printf("%d\n", top_ptr->n);
 		top_ptr = top_ptr->next;
 	}
 }
