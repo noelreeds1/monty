@@ -4,6 +4,8 @@
  *
  *@stack: refers to the stack.
  *
+ *@line_number: line where opcode occurs
+ *
  *Return: Always 0.
  */
 void pall(stack_t **stack, unsigned int line_number)

@@ -2,6 +2,8 @@
 /**
  * token_handler - matches a token to its respective opcode.
  *
+ *@token: opcode
+ *
  *@line_number: where opcode occurs.
  *
  *@stack: refers to stack pointer.

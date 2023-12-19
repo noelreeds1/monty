@@ -13,6 +13,7 @@ void push(stack_t **stack, unsigned int line_number)
 	int i, n;
 	stack_t *top_ptr = *stack;
 	stack_t *new_node = malloc(sizeof(stack_t));
+
 	if (token2 == NULL)
 	{
 		fprintf(stderr, "L%u: usage: push integer", line_number);
