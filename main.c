@@ -14,10 +14,10 @@ int main(int argc, char **argv)
 {
 	char *token = NULL;
 	unsigned int line_number = 1;
-	FILE *stream = NULL;
+	FILE *stream;
 	char *lineptr = NULL;
 	size_t buff_size = 0;
-	ssize_t num_read = 0;
+	ssize_t num_read;
 	stack_t *stack = NULL;
 
 	if (argc != 2)
@@ -39,5 +39,7 @@ int main(int argc, char **argv)
 			token_handler(&stack, token, line_number);
 		line_number++;
 	}
-	return (0);
+	free(lineptr);
+	fclose(stream);
+	exit(EXIT_SUCCESS);
 }
