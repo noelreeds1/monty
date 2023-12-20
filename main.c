@@ -8,7 +8,7 @@
  *
  *Return: Always 0.
  */
-char *token2;
+char *token2 = NULL;
 
 int main(int argc, char **argv)
 {
